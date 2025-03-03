@@ -1,21 +1,38 @@
-# file: .github/workflows/show-directory.yml
-name: setup
+name: Node CI
 # on – определяет события, которые запускают воркфлоу
-on: push
+on: 
+  - push
+  - pull_request
+
+env:
+  CI: true
+  
 jobs:
-  # build – произвольно выбранное имя задания
-  # их может быть больше одного
+  # build –  имя задания. их может быть больше одного
   build:
 
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+    
     steps: # список шагов, которые выполнить
       # экшен — выполняет задачу
       # checkout — клонирует репозиторий
       - uses: actions/checkout@v4
+      # установка Node
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
       # run – произвольная bash-команда
       # сетап проекта
       - run: make setup
-      # запуск тестов
-      - run: make test
-      # запуск линтера
+      - run: make install
       - run: make lint
+      - run: make test
+      # https://github.com/hexlet-components/hello-from-hexlet-action
+      - name: Print Hello from Hexlet
+        uses: hexlet-components/hello-from-hexlet-action@release
