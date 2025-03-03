@@ -1,7 +1,7 @@
 # Example app for CI Hexlet course
 
-[![setup](https://github.com/behindthep/hexlet-ci-app/actions/workflows/setup.yml/badge.svg)](https://github.com/behindthep/hexlet-ci-app/actions)
-[![setup](https://github.com/behindthep/hexlet-ci-app/actions/workflows/setup.yml/badge.svg)](https://github.com/behindthep/hexlet-ci-app/actions/workflows/setup.yml)
+[![actions](https://github.com/behindthep/hexlet-ci-app/actions/workflows/setup.yml/badge.svg)](https://github.com/behindthep/hexlet-ci-app/actions)
+[![setup workflow](https://github.com/behindthep/hexlet-ci-app/actions/workflows/setup.yml/badge.svg)](https://github.com/behindthep/hexlet-ci-app/actions/workflows/setup.yml)
 
 Starting boilerplate of [Strapi](https://strapi.io/) application
 
